@@ -76,6 +76,8 @@ struct Vertex{
 vector<Vertex*> prime_cells;
 vector<vector<Vertex>>vertex_grid;
 void makeVerticesGrid(){
+    //creating the vertex grid
+
     int R=grid.size();
     int C=grid[0].size();
     vertex_grid.clear();
@@ -97,6 +99,7 @@ void makeVerticesGrid(){
     }
 }
 void fillThePath(Vertex* P, int r, int c){
+    // filling the path forgiven prime vertex to (r,c)
     int dr = 0, dc = 0;
     if (P->r == r) 
         dc = (c > P->c ? 1 : -1);
@@ -122,6 +125,7 @@ void fillThePath(Vertex* P, int r, int c){
 }
 
 vector<Vertex*>reachableVertices(int r, int c){
+    // finding reachable prime vertices 
     vector<Vertex*>result;
     for(Vertex* P : prime_cells){
         if(P->r!=r && P->c!=c) continue;
